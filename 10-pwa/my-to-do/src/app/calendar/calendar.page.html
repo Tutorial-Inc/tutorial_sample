@@ -40,8 +40,8 @@
   </ng-template>
 
   <calendar [eventSource]="eventSource$ | async" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
-    [locale]="locale" (onCurrentDateChanged)="onCurrentDateChanged($event)"
-    (onRangeChanged)="reloadSource(startTime, endTime)" (onEventSelected)="onEventSelected($event)"
-    (onTitleChanged)="onViewTitleChanged($event)" step="30" [monthviewEventDetailTemplate]="template">
+    (onCurrentDateChanged)="onCurrentDateChanged($event)"
+    (onEventSelected)="onEventSelected($event)"
+    (onTitleChanged)="onViewTitleChanged($event)" [step]="30" [monthviewEventDetailTemplate]="template">
   </calendar>
 </ion-content>

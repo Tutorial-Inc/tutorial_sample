@@ -5,6 +5,7 @@ import { map, tap } from 'rxjs/operators';
 import { ModalController } from '@ionic/angular';
 import { ToDo } from '../todo/todo.model';
 import { TodoModalPage } from '../todo/todo-modal/todo-modal.page';
+import { CalendarMode } from 'ionic2-calendar/calendar';
 
 @Component({
   selector: 'app-calendar',
@@ -14,7 +15,7 @@ import { TodoModalPage } from '../todo/todo-modal/todo-modal.page';
 })
 export class CalendarPage implements OnInit {
   calendar = {
-    mode: 'month',
+    mode: 'month' as CalendarMode,
     currentDate: new Date(),
   };
   viewTitle: string;
