@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      Email
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        {{ email$ | async }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row class="ion-margin-top">
+      <ion-col class="ion-text-center">
+        <ion-button color="danger" fill="clear" class="ion-margin-top" (click)="onLogoutClicked()">
+          ログアウト
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

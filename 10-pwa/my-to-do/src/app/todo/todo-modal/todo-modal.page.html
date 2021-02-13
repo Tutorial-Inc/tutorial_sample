@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ToDo 編集</ion-title>
+    <ion-button slot="end" fill="clear" (click)="dismiss()">
+      Close
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="todoForm">
+    <ion-item class="ion-margin">
+      <ion-label position="floating">Title</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin">
+      <ion-label position="floating">期日</ion-label>
+      <ion-input type="date" formControlName="due"></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin">
+      <ion-label position="floating">メモ</ion-label>
+      <ion-textarea auto-grow="true" rows="3" formControlName="memo"></ion-textarea>
+    </ion-item>
+    <ion-button color="primary" expand="full" [disabled]="!todoForm.valid" (click)="onSubmitClicked()">
+      登録
+    </ion-button>
+  </form>
+
+  <p class="ion-margin" *ngFor="let errorMessage of errorMessages.title">
+    <ion-text color="danger"
+      *ngIf="todoForm.get('title').hasError(errorMessage.type) && (todoForm.get('title').dirty || todoForm.get('title').touched)">
+      {{ errorMessage.message }}
+    </ion-text>
+  </p>
+
+  <p class="ion-margin" *ngFor="let errorMessage of errorMessages.due">
+    <ion-text color="danger"
+      *ngIf="todoForm.get('due').hasError(errorMessage.type) && (todoForm.get('due').dirty || todoForm.get('due').touched)">
+      {{ errorMessage.message }}
+    </ion-text>
+  </p>
+
+</ion-content>

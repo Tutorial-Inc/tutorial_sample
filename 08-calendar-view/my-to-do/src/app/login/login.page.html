@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My ToDo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">My ToDo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Login</strong>
+    <p>さあ始めましょう。</p>
+    <form [formGroup]="loginForm">
+      <ion-list class="ion-margin-vertical">
+        <ion-item>
+          <ion-input placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+    <ion-button color="primary" expand="full" class="ion-margin-vertical" (click)="onLoginClicked()"
+      [disabled]="!loginForm.valid">
+      Login
+    </ion-button>
+
+    <p class="ion-margin" *ngFor="let errorMessage of errorMessages.email">
+      <ion-text color="danger"
+        *ngIf="loginForm.get('email').hasError(errorMessage.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+        {{ errorMessage.message }}
+      </ion-text>
+    </p>
+
+    <p class="ion-margin" *ngFor="let errorMessage of errorMessages.password">
+      <ion-text color="danger"
+        *ngIf="loginForm.get('password').hasError(errorMessage.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+        {{ errorMessage.message }}
+      </ion-text>
+    </p>
+  </div>
+</ion-content>
