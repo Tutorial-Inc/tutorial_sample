@@ -18,6 +18,7 @@ import { TodoModalPageModule } from './todo/todo-modal/todo-modal.module';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from './todo/todo.effects';
 import { AuthEffects } from './auth/auth.effects';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,7 @@ import { AuthEffects } from './auth/auth.effects';
     CalendarPageModule,
     TodoModalPageModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
