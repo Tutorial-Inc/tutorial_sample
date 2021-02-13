@@ -1,13 +1,17 @@
 # ネイティブアプリ風ウェブアプリを Ionic で作ってみる（完全入門編）
 
+元記事はこちらになります。
+
 * [第一回 記事](https://www.roboticcrowd.com/native-ionic-web-app-1/)
 * [第二回 記事](https://www.roboticcrowd.com/native-ionic-web-app-2/)
 * [第三回 記事](https://www.roboticcrowd.com/native-ionic-web-app-3/)
 * [第四回 記事](https://www.roboticcrowd.com/native-ionic-web-app-4/)
 
-ソースコードを公開しています。
+ここでは、ソースコードを公開しています。
 
-アプリは、https://dev.d24wcf2ponetu0.amplifyapp.com/ ここから新規登録、利用ができます。
+アプリも公開しています。
+https://dev.d24wcf2ponetu0.amplifyapp.com/
+ここから新規登録、利用ができます。
 
 ## 01-ionic-pure
 
