@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My ToDo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">My ToDo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Login</strong>
+    <p>さあ始めましょう。</p>
+    <p *ngIf="newPasswordRequired$ | async">新しいパスワードを設定してください。</p>
+    <form [formGroup]="loginForm">
+      <ion-list class="ion-margin-vertical">
+        <ion-item>
+          <ion-input placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="newPasswordRequired$ | async">
+          <ion-input placeholder="New Password" type="password" formControlName="newPassword"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+    <ion-button color="success" expand="full" class="ion-margin-vertical" 
+      (click)="onCompleteNewPassword()" *ngIf="newPasswordRequired$ | async" [disabled]="!loginForm.valid">
+      Confirm New Password
+    </ion-button>
+    <ion-button color="primary" expand="full" class="ion-margin-vertical" (click)="onLoginClicked()"
+      [disabled]="!loginForm.valid" *ngIf="!(anyChallenge$ | async)">
+      Login
+    </ion-button>
+
+    <p class="ion-margin" *ngFor="let errorMessage of errorMessages.email">
+      <ion-text color="danger"
+        *ngIf="loginForm.get('email').hasError(errorMessage.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+        {{ errorMessage.message }}
+      </ion-text>
+    </p>
+
+    <p class="ion-margin" *ngFor="let errorMessage of errorMessages.password">
+      <ion-text color="danger"
+        *ngIf="loginForm.get('password').hasError(errorMessage.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+        {{ errorMessage.message }}
+      </ion-text>
+    </p>
+
+    <p class="ion-margin" *ngFor="let errorMessage of errorMessages.newPassword">
+      <ion-text color="danger"
+        *ngIf="loginForm.get('newPassword').hasError(errorMessage.type) && (loginForm.get('newPassword').dirty || loginForm.get('password').touched)">
+        {{ errorMessage.message }}
+      </ion-text>
+    </p>
+
+
+    <p class="ion-text-center ion-margin-top">
+      <ion-button fill="clear" routerLink="/signup">
+        新規登録
+      </ion-button>
+    </p>
+
+    <p class="ion-text-center ion-margin-top">
+      <ion-button fill="clear" routerLink="/forgot-password">
+        パスワードを忘れた
+      </ion-button>
+    </p>
+  </div>
+</ion-content>
