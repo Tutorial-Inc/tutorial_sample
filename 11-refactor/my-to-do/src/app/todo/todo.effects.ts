@@ -3,16 +3,16 @@ import { of } from 'rxjs';
 import { mergeMap, map, catchError, switchMap } from 'rxjs/operators';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as fromTodo from './todo.slice';
-// import { AmplifyTodoService } from './amplify-todo.service';
-import { FakeTodoService } from "./fake-todo.service";
+import { AmplifyTodoService } from './amplify-todo.service';
+// import { FakeTodoService } from "./fake-todo.service";
 import { ToDo } from './todo.model';
 
 @Injectable()
 export class TodoEffects {
   constructor(
     private actions$: Actions,
-    // private todoService: AmplifyTodoService,
-    private todoService: FakeTodoService,
+    private todoService: AmplifyTodoService,
+    // private todoService: FakeTodoService,
   ) { }
 
   postTodo$ = createEffect(
