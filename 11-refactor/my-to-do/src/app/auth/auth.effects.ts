@@ -3,9 +3,10 @@ import { from, of } from 'rxjs';
 import { mergeMap, map, catchError, tap, concatMap } from 'rxjs/operators';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as authSlice from './auth.slice';
-import { CognitoAuthService } from './cognito-auth.service';
 import { User } from './user.model';
 import { Router } from '@angular/router';
+// import { FakeAuthService } from './fake-auth.service';
+import { CognitoAuthService } from './cognito-auth.service';
 
 type AuthenticationParams = {
   email: string,
@@ -32,6 +33,7 @@ export class AuthEffects {
   constructor(
     private actions$: Actions,
     private authService: CognitoAuthService,
+    // private authService: FakeAuthService,
     private router: Router,
   ) { }
 

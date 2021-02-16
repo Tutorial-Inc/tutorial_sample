@@ -24,7 +24,7 @@ export class CalendarPage implements OnInit {
 
   eventSource$ = this.todoService.todos$.pipe(
     map(todos => todos.map(todo => {
-      return { title: todo.title, allDay: true, startTime: todo.due, endTime: todo.due, id: todo.id, memo: todo.memo, done: todo.done }
+      return { title: todo.title, allDay: false, startTime: todo.due, endTime: todo.due, id: todo.id, memo: todo.memo, done: todo.done }
     }))
   );
 

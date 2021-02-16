@@ -4,11 +4,12 @@ import { APIService, CreateTodoInput, CreateTodoMutation, DeleteTodoInput, Delet
 import { Observable, from } from 'rxjs';
 import { AuthFacade } from '../auth/auth.facade';
 import { mergeMap, take } from 'rxjs/operators';
+import { TodoProvider } from './todo-provider';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AmplifyTodoService {
+export class AmplifyTodoService implements TodoProvider {
 
   constructor(
     private api: APIService,
